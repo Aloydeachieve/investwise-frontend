@@ -1,0 +1,38 @@
+.inputWithAdornment {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.inputWithAdornment input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+
+.inputWithAdornment span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    height: 40px; /* Explicit height to match input */
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    color: #475569;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.rateTableContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.rateRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}

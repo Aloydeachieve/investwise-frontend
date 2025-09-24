@@ -1,0 +1,102 @@
+.container {
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.depositBtn {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.investBtn {
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.transferBtn {
+  margin-top: 1rem;
+  background: #111827;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.activeTab {
+  border-bottom: 2px solid #2563eb;
+  color: #2563eb;
+}
+
+.activePlans {
+  margin-top: 2rem;
+}
+
+.planCard {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

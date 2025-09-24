@@ -1,0 +1,258 @@
+.container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusBadge.active { background-color: #dbeafe; color: #1d4ed8; }
+.statusBadge.completed { background-color: #dcfce7; color: #166534; }
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.backButton, .menuButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.menuButton {
+  padding: 0.5rem;
+}
+
+.backButton:hover, .menuButton:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Left Column */
+.overviewAmount {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.profitAmount {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #16a34a;
+  margin-left: 0.5rem;
+}
+
+.termDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.termItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: #475569;
+}
+
+.termItem span {
+  font-weight: 600;
+  color: #334155;
+}
+
+.termItem small {
+  font-size: 0.75rem;
+}
+
+.termArrow {
+  font-size: 1.5rem;
+  color: #94a3b8;
+}
+
+.scheduleTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scheduleItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.scheduleItem strong {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.paidIcon { color: #16a34a; }
+.pendingIcon { color: #d97706; }
+
+/* Middle & Right Columns */
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detailsSection h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #334155;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+.detailItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detailItem span {
+  color: #64748b;
+}
+
+.detailItem strong {
+  font-weight: 600;
+  color: #334155;
+  text-align: right;
+}
+
+.paymentStatus {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+.notesSection h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #334155;
+}
+
+.notesSection p {
+  font-size: 0.875rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+  background-color: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/* Analytics */
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+}
+
+/* Transaction History Table */
+.profit { color: #16a34a; }
+.loss { color: #dc2626; }

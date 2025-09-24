@@ -1,0 +1,99 @@
+/* Styles specific to NotificationSettings can be added here. */
+.smtpGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    max-width: 400px;
+}
+
+.templateList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 500px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.templateItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.templateItem:last-child {
+    border-bottom: none;
+}
+
+.templateItem span {
+    font-weight: 500;
+    color: #334155;
+}
+
+.editButton {
+    background-color: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.editButton:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+/* Modal Styles */
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.shortcodeInfo {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+.shortcodeInfo h4 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.shortcodeInfo p {
+    margin: 0;
+    color: #64748b;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.cancelButton {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 0.625rem 1.25rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+    background-color: #e2e8f0;
+}
+

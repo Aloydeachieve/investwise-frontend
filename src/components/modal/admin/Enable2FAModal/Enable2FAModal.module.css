@@ -1,0 +1,133 @@
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.modalHeader button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.content p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.qrCode {
+    width: 180px;
+    height: 180px;
+    background-color: #f3f4f6;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.secretKey {
+    background-color: #eef2ff;
+    color: #4338ca;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: monospace;
+    letter-spacing: 2px;
+    word-break: break-all;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.field input {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.cancelButton, .enableButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.cancelButton {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.enableButton {
+    background-color: #16a34a;
+    color: #fff;
+}

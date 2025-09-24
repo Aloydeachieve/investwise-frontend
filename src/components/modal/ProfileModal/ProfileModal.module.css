@@ -1,0 +1,176 @@
+@media (min-width:320px) {
+
+
+  .modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modalContent {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 500px;
+    max-width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .modalHeader h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .modalHeader button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .modalTabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+  }
+
+  .activeTab {
+    flex: 1;
+    padding: 0.6rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+  }
+
+  .activeTab {
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+
+  .form .addressRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .form .addressRow1 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .saveBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-self: self-start;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.3s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  input:checked+.slider {
+    background-color: #4f46e5;
+    /* Or your theme color */
+  }
+
+  input:checked+.slider:before {
+    transform: translateX(20px);
+  }
+
+
+}
+
+@media (min-width:768px) {
+    .modalContent {
+    border-radius: 10px;
+    padding: 2rem;
+    width: 720px;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
+    }
+
+  .form .addressRow, .form .addressRow1 {
+    display: flex;
+    gap: 1rem;
+    width: 310px;
+  }
+
+  .form input {
+    width: 310px;
+
+  }
+}

@@ -1,0 +1,94 @@
+.toastContainer {
+  max-width: 20rem;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+
+.iconSuccess {
+  background-color: #d1fae5; /* green-100 */
+  color: #059669;           /* green-600 */
+}
+
+.iconError {
+  background-color: #fee2e2; /* red-100 */
+  color: #dc2626;           /* red-600 */
+}
+
+.message {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: #111827;
+}
+
+.okButton {
+  margin-top: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.okButtonSuccess {
+  border-color: #059669;
+  color: #059669;
+}
+
+.okButtonSuccess:hover {
+  background-color: #ecfdf5;
+}
+
+.okButtonError {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.okButtonError:hover {
+  background-color: #fef2f2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}

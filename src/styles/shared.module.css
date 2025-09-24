@@ -1,0 +1,188 @@
+.settingsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cardHeader {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.cardDescription {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+@media (min-width: 768px) {
+    .formSection {
+        grid-template-columns: 250px 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.formSection:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.labelGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelGroup label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.25rem;
+}
+
+.labelGroup p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background-color: #f8fafc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    background-color: #fff;
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.inputErrorState {
+    border-color: #ef4444 !important;
+}
+
+.inputErrorState:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.errorMessage {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.fileInputContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fileInput {
+    display: none;
+}
+
+.fileInputLabel {
+    cursor: pointer;
+    padding: 0.625rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.fileInputLabel:hover {
+    background-color: #f8fafc;
+}
+
+.logoPreview {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 0.375rem;
+    border: 1px solid #e2e8f0;
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkboxWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkboxWrapper label {
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 1rem;
+}
+
+.saveButton {
+    background-color: #1e293b;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.saveButton:hover {
+    background-color: #334155;
+}

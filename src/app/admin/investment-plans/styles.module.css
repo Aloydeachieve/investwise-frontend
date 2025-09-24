@@ -1,0 +1,130 @@
+/* Styles for the User Investment Tracking page */
+.container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.manageButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1e293b;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.manageButton:hover {
+  background-color: #334155;
+}
+
+.content {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabButton {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  margin-bottom: -1px;
+}
+
+.tabButton:hover {
+  color: #1e293b;
+}
+
+.activeTab {
+  color: #1e293b;
+  border-bottom-color: #1e293b;
+}
+
+/* Status Cell Styles */
+.activeStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.statusText {
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusCompleted {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.statusPending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #3b82f6;
+  font-weight: 500;
+  background-color: #f8fafc;
+}

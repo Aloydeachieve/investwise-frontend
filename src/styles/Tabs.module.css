@@ -1,0 +1,91 @@
+.container {
+  font-size: 0.9rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusCompleted, .statusActive {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.statusPending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.statusFailed {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Placeholder for empty states (e.g., Referrals) */
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #64748b;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+}
+
+/* Buttons for Activities Tab */
+.clearButton {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearButton:hover {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.clearAllButton {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clearAllButton:hover {
+  background-color: #fecaca;
+}

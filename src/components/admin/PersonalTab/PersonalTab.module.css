@@ -1,0 +1,38 @@
+.container {
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailItem {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.detailItem:last-child {
+  border-bottom: none;
+}
+
+.detailLabel {
+  font-weight: 600;
+  color: #475569;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.detailValue {
+  color: #334155;
+  margin-left: 1rem;
+}

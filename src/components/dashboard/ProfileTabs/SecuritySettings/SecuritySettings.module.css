@@ -1,0 +1,59 @@
+.wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 2rem;
+}
+
+.headerSection {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 700;
+  /* margin-bottom: 1rem; */
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafafa;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 80%;
+}
+
+.optionText p {
+  color: #353940;
+  font-size: 14px;
+}
+
+.optionText span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.actionButton {
+  background: #2563eb;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}

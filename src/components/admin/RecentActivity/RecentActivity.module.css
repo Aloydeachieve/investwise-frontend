@@ -1,0 +1,177 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.activityList {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-right: -1rem; /* To hide scrollbar but keep functionality */
+  padding-right: 1rem;
+}
+
+.activityItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityIconWrapper {
+  flex-shrink: 0;
+}
+
+.activityIconContainer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activityIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.activityContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activityTitle {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.activityTime {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.timeIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.activityDescription {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.activityUser {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #475569;
+  margin-top: 0.25rem;
+}
+
+.userLabel {
+  font-weight: 500;
+}
+
+.userName {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.activityStatus {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.viewAllContainer {
+  padding-top: 1rem;
+  margin-top: auto;
+  border-top: 1px solid #f1f5f9;
+}
+
+.viewAllButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.viewAllButton:hover {
+  background-color: #f1f5f9;
+}
+
+/* Status Colors */
+.success .activityIcon {
+  color: #10b981;
+}
+.success.activityIconContainer {
+  background-color: #10b98115;
+}
+.success.statusDot {
+  background-color: #10b981;
+}
+
+.warning .activityIcon {
+  color: #f59e0b;
+}
+.warning.activityIconContainer {
+  background-color: #f59e0b15;
+}
+.warning.statusDot {
+  background-color: #f59e0b;
+}
+
+.error .activityIcon {
+  color: #ef4444;
+}
+.error.activityIconContainer {
+  background-color: #ef444415;
+}
+.error.statusDot {
+  background-color: #ef4444;
+}
+
+.info .activityIcon {
+  color: #3b82f6;
+}
+.info.activityIconContainer {
+  background-color: #3b82f615;
+}
+.info.statusDot {
+  background-color: #3b82f6;
+}

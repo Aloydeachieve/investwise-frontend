@@ -1,0 +1,294 @@
+/* ========== 360px responsiveness ================ */
+@media screen and (min-width: 320px) {
+  .investmentPlans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+  }
+
+  .investmentPlans .investmentText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .investmentPlans .investmentText h1 {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #364a63;
+  }
+
+  .investmentPlans .investmentText p {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #526484;
+  }
+
+    .investmentPlans .investmentText span {
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #364a63;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  margin-top: -2rem;
+}
+
+.filterCard {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.filterWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .filterWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+    .investmentPlans .investmentText h1 {
+    font-size: 32px;
+  }
+
+    .investmentPlans .investmentText span {
+    font-size: 12.5px;
+  }
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #f3f4f6;
+  color: #374151;
+  transition: background 0.2s;
+}
+
+.filterButton:hover {
+  background-color: #e5e7eb;
+}
+
+.activeFilter {
+  background-color: #2563eb;
+  color: white;
+}
+
+.searchInputWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 16rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #9ca3af;
+}
+
+.gridWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .gridWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+    .investmentPlans .investmentText {
+    padding: 20px 100px;
+  }
+
+      .investmentPlans .investmentText h1 {
+    font-size: 40px;
+  }
+
+      .investmentPlans .investmentText span {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+    .investmentPlans .investmentText {
+    padding: 20px 300px;
+  }
+
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #f3f4f6;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cardHeader {
+  padding: 1rem;
+}
+
+.cardBody {
+  padding: 1.5rem;
+}
+
+.productName {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.productMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.productDescription {
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.featureBlock > div {
+  margin-bottom: 1.25rem;
+}
+
+.featureTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.featureValue {
+  font-weight: 600;
+}
+
+.featureList {
+  list-style-type: disc;
+  padding-left: 1rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.cardFooter {
+  padding: 1rem 1.5rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+}
+
+.learnMoreButton {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.learnMoreButton:hover {
+  background-color: #1e40af;
+}
+
+.emptyState {
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.emptyIcon {
+  height: 3rem;
+  width: 3rem;
+  color: #9ca3af;
+  margin: 0 auto;
+}
+
+.emptyTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin-top: 1rem;
+}
+
+.emptyText {
+  color: #6b7280;
+  margin-top: 0.25rem;
+}

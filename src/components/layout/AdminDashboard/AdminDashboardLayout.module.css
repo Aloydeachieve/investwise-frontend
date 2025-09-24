@@ -1,0 +1,120 @@
+.layout {
+  min-height: 100vh;
+  background-color: #f8fafc; /* Lighter background */
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #001529;
+  color: rgba(255, 255, 255, 0.65);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.logo {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.logo span {
+    cursor: pointer;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navLink:hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.navLink .icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease-in-out;
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1e293b;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+}
+
+.contentArea {
+  /* The page itself will have padding, so we remove it from here */
+  flex: 1;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .layout {
+    display: flex;
+  }
+  .sidebar {
+    transform: translateX(0);
+    position: relative; /* No longer fixed */
+  }
+  .header, .overlay {
+    display: none; /* Hide mobile header and overlay */
+  }
+}

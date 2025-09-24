@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+
+.header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.title {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 2.25rem; /* 36px */
+}
+
+.subtitle {
+  margin-top: 0.25rem;
+  font-size: 1rem; /* 16px */
+  color: #64748b;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content2 {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  /* flex-wrap: wrap; */
+}
+@media (max-width: 768px) {
+  .content2 {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "summary summary summary"
+      "chart chart activity"
+      "chart chart activity";
+  }
+}
+
+.summarySection {
+  grid-area: summary;
+}
+
+.chartSection {
+  /* grid-area: chart; */
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.chartContainer {
+  padding: 1.5rem;
+}
+
+.chartHeader {
+  margin-bottom: 1.5rem;
+}
+
+.chartTitle {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.chartSubtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* 14px */
+  color: #64748b;
+}
+
+.activitySection {
+  /* grid-area: activity; */
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.activityContainer {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.activityHeader {
+  margin-bottom: 1.5rem;
+}
+
+.activityTitle {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.activitySubtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* 14px */
+  color: #64748b;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  color: #64748b;
+}
+
+.loader {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

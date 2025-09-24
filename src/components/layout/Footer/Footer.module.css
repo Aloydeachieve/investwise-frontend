@@ -1,0 +1,107 @@
+.footer {
+  background-color: #1f2937; /* gray-800 */
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.companyInfo {
+  grid-column: span 1;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.description {
+  margin-top: 0.75rem;
+  color: #9ca3af; /* gray-400 */
+  font-size: 0.95rem;
+}
+
+.socialLinks {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  color: white;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e5e7eb; /* gray-200 */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.linkList {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.linkList li {
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.link:hover {
+  color: white;
+}
+
+.bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #374151; /* gray-700 */
+}
+
+.legalLinks {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.disclaimer {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  max-width: 900px;
+}

@@ -1,0 +1,264 @@
+/* Container & Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+}
+
+.sidebarWrapper {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebarWrapper {
+    display: flex;
+    flex-shrink: 0;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  background-color: white;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+  overflow-y: auto;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.navWrapper {
+  margin-top: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  flex-grow: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.active {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.divider {
+  margin: 1rem 0;
+  border-color: #e5e7eb;
+}
+
+.icon {
+  margin-right: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.profileSection {
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.profileWrapper {
+  width: 100%;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 9999px;
+  background-color: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.profileText {
+  margin-left: 0.75rem;
+}
+
+.profileName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.profileView {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  z-index: 10;
+  position: relative;
+}
+
+.mobileToggle {
+  display: block;
+  border-right: 1px solid #e5e7eb;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+}
+
+.menuIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .menuIcon {
+    display: block;
+  }
+}
+
+.topBarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.welcomeWrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.welcomeText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .welcomeText {
+    display: block;
+  }
+}
+
+.notificationWrapper {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.notificationButton {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.notificationButton:hover {
+  color: #6b7280;
+}
+
+.bellIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.mobileMenu {
+  display: block;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobileNav {
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileNavItem {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: #4b5563;
+  transition: background 0.2s ease;
+}
+
+.mobileNavItem:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.pageContent {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  outline: none;
+}

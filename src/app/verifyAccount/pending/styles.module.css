@@ -1,0 +1,63 @@
+/* src/app/auth/verify/pending/page.module.css */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.statusIcon {
+  height: 4rem;
+  width: 4rem;
+  color: #facc15;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.message {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 500px;
+}
+
+/* src/app/auth/verify/success/page.module.css */
+
+.successWrapper {
+  color-scheme: wrapper;
+}
+
+.statusIconSuccess {
+  height: 4rem;
+  width: 4rem;
+  color: #22c55e;
+  margin-bottom: 1.5rem;
+}
+
+.successMessage {
+  font-size: 1rem;
+  color: #4ade80;
+  max-width: 500px;
+  margin-top: 0.5rem;
+}
+
+.loginLink {
+  margin-top: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}

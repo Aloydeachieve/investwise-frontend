@@ -1,0 +1,22 @@
+/* Styles specific to ReferralSettings can be added here. */
+.radioGroup {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.radioWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radioWrapper label {
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+}
+
+.inputWithAdornment {
+    max-width: 200px;
+}
+
