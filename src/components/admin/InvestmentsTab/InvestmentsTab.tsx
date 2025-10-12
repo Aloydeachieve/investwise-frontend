@@ -3,6 +3,10 @@ import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { Investment } from '@/components/types/details';
 import styles from '@/styles/Tabs.module.css';
 
+interface InvestmentsTabProps {
+  userId: string;
+}
+
 const mockInvestments: Investment[] = [
   { id: 'inv1', planName: 'Starter Plan', startDate: '2024-04-01', endDate: '2024-07-01', investmentId: 'INV-001', amount: 50000, currency: 'NGN', status: 'active' },
   { id: 'inv2', planName: 'Pro Plan', startDate: '2024-01-15', endDate: '2024-04-15', investmentId: 'INV-002', amount: 100000, currency: 'NGN', status: 'completed' },
@@ -20,7 +24,9 @@ const StatusBadge: React.FC<{ status: Investment['status'] }> = ({ status }) => 
   return <span className={`${styles.statusBadge} ${statusClasses[status]}`}>{status}</span>;
 };
 
-export default function InvestmentsTab() {
+const InvestmentsTab: React.FC<InvestmentsTabProps> = ({ userId }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // TODO: Use userId to fetch user-specific investments data
   const columns: ColumnDef<Investment>[] = useMemo(() => [
     { header: 'Plan Name', accessor: 'planName' },
     { header: 'Amount', accessor: 'amount', cell: (item) => formatCurrency(item.amount) },
@@ -36,3 +42,5 @@ export default function InvestmentsTab() {
     </div>
   );
 }
+
+export default InvestmentsTab;

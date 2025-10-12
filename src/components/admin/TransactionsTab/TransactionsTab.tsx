@@ -3,6 +3,10 @@ import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { Transaction } from '@/components/types/details';
 import styles from '@/styles/Tabs.module.css';
 
+interface TransactionsTabProps {
+  userId: string;
+}
+
 const mockTransactions: Transaction[] = [
   { id: 'txn1', type: 'Deposit', orderId: 'ORD-123', reference: 'REF-ABC', amount: 50000, currency: 'NGN', date: '2024-05-20', status: 'completed' },
   { id: 'txn2', type: 'Withdrawal', orderId: 'ORD-124', reference: 'REF-DEF', amount: 10000, currency: 'NGN', date: '2024-05-18', status: 'pending' },
@@ -23,7 +27,9 @@ const StatusBadge: React.FC<{ status: Transaction['status'] }> = ({ status }) =>
   return <span className={`${styles.statusBadge} ${statusClasses[status]}`}>{status}</span>;
 };
 
-export default function TransactionsTab() {
+const TransactionsTab: React.FC<TransactionsTabProps> = ({ userId }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // TODO: Use userId to fetch user-specific transactions data
   const columns: ColumnDef<Transaction>[] = useMemo(() => [
     { header: 'Type', accessor: 'type' },
     { header: 'Order ID', accessor: 'orderId' },
@@ -39,3 +45,6 @@ export default function TransactionsTab() {
     </div>
   );
 }
+
+
+export default TransactionsTab;

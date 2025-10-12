@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { UserInvestment, InvestmentStatus } from '@/components/types/investment';
 import ProgressBar from '@/components/admin/ProgressBar/ProgressBar';
@@ -80,7 +79,7 @@ export default function InvestmentManagementPage() {
   ];
 
   return (
-    <AdminDashboardLayout>
+    <>
       <div className={styles.container}>
         <div className={styles.header}>
           <div>
@@ -115,6 +114,6 @@ export default function InvestmentManagementPage() {
           )}
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

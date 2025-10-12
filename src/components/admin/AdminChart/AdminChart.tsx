@@ -96,11 +96,13 @@ const chartData: ChartData[] = [
 ];
 
 const CustomTooltip = (props: TooltipProps<number, string>) => {
-  const { active, payload, label } = props;
-  if (active && payload && payload.length) {
+  const { active } = props;
+  const label = "label" in props ? props.label : undefined;
+  const payload = "payload" in props ? props.payload : undefined;
+  if (active && Array.isArray(payload) && payload.length) {
     return (
       <div className={styles.tooltip}>
-        <p className={styles.tooltipLabel}>{`Month: ${label}`}</p>
+        <p className={styles.tooltipLabel}>{`Month: ${label ?? ""}`}</p>
         {payload.map((entry, index) => (
           <p key={index} className={styles.tooltipEntry} style={{ color: entry.color }}>
             {`${entry.name}: ₦${entry.value}M`}

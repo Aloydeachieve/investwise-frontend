@@ -306,3 +306,266 @@ const InvestormDashboard = () => {
 };
 
 export default InvestormDashboard;
+
+
+
+
+      if (response.success) {
+        if (response.user && response.token) {
+          login({ user: response.user, token: response.token });
+        } else {
+          updateUser({ kyc_status: 'pending' });
+        }
+        router.push("/verifyAccount/pending");
+      }
+
+
+
+
+
+
+
+
+
+
+
+      <!-- user details layout -->
+       "use client";
+
+import React, { useState } from 'react';
+import { User } from '@/components/types/user';
+import UserProfileCard from '@/components/admin/UserProfileCard/UserProfileCard';
+import PersonalTab from '@/components/admin/PersonalTab/PersonalTab';
+import TransactionsTab from '@/components/admin/TransactionsTab/TransactionsTab';
+import InvestmentsTab from '@/components/admin/InvestmentsTab/InvestmentsTab';
+import ReferralsTab from '@/components/admin/ReferralsTab/ReferralsTab';
+import ActivitiesTab from '@/components/admin/ActivitiesTab/ActivitiesTab';
+import styles from './UserDetailsLayout.module.css';
+
+type Tab = 'personal' | 'transactions' | 'investments' | 'referrals' | 'activities';
+
+interface UserDetailsLayoutProps {
+  user: User;
+}
+
+export default function UserDetailsLayout({ user }: UserDetailsLayoutProps) {
+  const [activeTab, setActiveTab] = useState<Tab>('personal');
+
+  const tabs: { id: Tab; label: string; component: React.ReactNode }[] = [
+    { id: 'personal', label: 'Personal', component: <PersonalTab user={user} /> },
+    { id: 'transactions', label: 'Transactions', component: <TransactionsTab /> },
+    { id: 'investments', label: 'Investments', component: <InvestmentsTab /> },
+    { id: 'referrals', label: 'Referrals', component: <ReferralsTab /> },
+    { id: 'activities', label: 'Activities', component: <ActivitiesTab /> },
+  ];
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.mainContent}>
+        <div className={styles.tabNav}>
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              className={`${styles.tabButton} ${activeTab === tab.id ? styles.activeTab : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <div className={styles.tabContent}>
+          {tabs.find(tab => tab.id === activeTab)?.component}
+        </div>
+      </div>
+      <aside className={styles.sidebar}>
+        <UserProfileCard user={user} />
+      </aside>
+    </div>
+  );
+}
+
+
+<!-- userprofilecard -->
+import React from 'react';
+import { User } from '@/components/types/user';
+import styles from './UserProfileCard.module.css';
+import { Mail, Phone, ShieldCheck, ShieldOff, KeyRound, UserX, Send } from 'lucide-react';
+
+interface UserProfileCardProps {
+  user: User;
+}
+
+const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
+};
+
+export default function UserProfileCard({ user }: UserProfileCardProps) {
+  return (
+    <div className={styles.card}>
+      <div className={styles.profileHeader}>
+        <div className={styles.avatar}>{user.name.charAt(0)}</div>
+        <h2 className={styles.userName}>{user.fullName || user.name}</h2>
+        <p className={styles.userRole}>
+          Status: <span className={`${styles.status} ${styles[user.status]}`}>{user.status}</span>
+        </p>
+      </div>
+
+      <div className={styles.contactInfo}>
+        <div className={styles.contactItem}>
+          <Mail size={16} className={styles.contactIcon} />
+          <span>{user.email}</span>
+        </div>
+        {user.mobile && (
+          <div className={styles.contactItem}>
+            <Phone size={16} className={styles.contactIcon} />
+            <span>{user.mobile}</span>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.balanceSection}>
+        <h3 className={styles.sectionTitle}>Account Balances</h3>
+        <div className={styles.balanceItem}>
+          <span>Main Balance</span>
+          <span className={styles.balanceAmount}>{formatCurrency(user.balances?.main ?? 0)}</span>
+        </div>
+        <div className={styles.balanceItem}>
+          <span>Investment Wallet</span>
+          <span className={styles.balanceAmount}>{formatCurrency(user.balances?.investment ?? 0)}</span>
+        </div>
+        <div className={styles.balanceItem}>
+          <span>Locked Profit</span>
+          <span className={styles.balanceAmount}>{formatCurrency(user.balances?.locked ?? 0)}</span>
+        </div>
+      </div>
+
+      <div className={styles.actionsSection}>
+        <h3 className={styles.sectionTitle}>Quick Actions</h3>
+        <div className={styles.actionButtons}>
+          <button className={styles.actionButton}>
+            <Send size={16} />
+            <span>Send Email</span>
+          </button>
+          {user.isVerified ? (
+            <button className={`${styles.actionButton} ${styles.unverifyButton}`}>
+              <ShieldOff size={16} />
+              <span>Un-verify</span>
+            </button>
+          ) : (
+            <button className={`${styles.actionButton} ${styles.verifyButton}`}>
+              <ShieldCheck size={16} />
+              <span>Verify Email</span>
+            </button>
+          )}
+          <button className={styles.actionButton}>
+            <KeyRound size={16} />
+            <span>Reset Pass</span>
+          </button>
+          <button className={`${styles.actionButton} ${styles.suspendButton}`}>
+            <UserX size={16} />
+            <span>Suspend</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+<!-- personaltab -->
+ import React from 'react';
+import { User } from '@/components/types/user';
+import styles from './PersonalTab.module.css';
+
+interface PersonalTabProps {
+  user: User;
+}
+
+const DetailItem: React.FC<{ label: string; value: React.ReactNode }> = ({ label, value }) => (
+  <div className={styles.detailItem}>
+    <dt className={styles.detailLabel}>{label}</dt>
+    <dd className={styles.detailValue}>{value || 'N/A'}</dd>
+  </div>
+);
+
+export default function PersonalTab({ user }: PersonalTabProps) {
+  const fullAddress = user.address 
+    ? `${user.address.street}, ${user.address.city}, ${user.address.state} ${user.address.zip}, ${user.address.country}`
+    : 'N/A';
+
+  return (
+    <div className={styles.container}>
+      <h3 className={styles.title}>Personal Information</h3>
+      <dl className={styles.detailsList}>
+        <DetailItem label="Full Name" value={user.fullName} />
+        <DetailItem label="Email Address" value={user.email} />
+        <DetailItem label="Mobile Number" value={user.mobile} />
+        <DetailItem label="Date of Birth" value={user.dob ? new Date(user.dob).toLocaleDateString() : 'N/A'} />
+        <DetailItem label="Gender" value={user.gender} />
+        <DetailItem label="Address" value={fullAddress} />
+        <DetailItem label="Date Joined" value={new Date(user.joinDate).toLocaleString()} />
+        <DetailItem label="Registration Method" value={user.registrationMethod} />
+        <DetailItem label="Last Login" value={user.lastLogin ? new Date(user.lastLogin).toLocaleString() : 'Never'} />
+        <DetailItem label="Email Verified" value={user.isVerified ? 'Yes' : 'No'} />
+      </dl>
+    </div>
+  );
+}
+
+<!-- user[id] page.isx -->
+ import React from 'react';
+import UserDetailsLayout from '@/components/admin/UserDetails/UserDetailsLayout';
+import { User } from '@/components/types/user';
+import styles from './styles.module.css';
+import Link from 'next/link';
+import { ChevronLeft } from 'lucide-react';
+
+// Mock data - in a real app, this would be fetched based on the `id` param
+const mockUser: User = {
+  id: '17683',
+  name: 'Sylvanus Odi',
+  fullName: 'Sylvanus Odi',
+  email: 'sylvanus@example.com',
+  status: 'active',
+  joinDate: '2023-10-26',
+  lastLogin: '2024-05-20T10:00:00Z',
+  mobile: '+1 234 567 890',
+  dob: '1990-01-15',
+  gender: 'Male',
+  address: {
+    street: '123 Main St',
+    city: 'Anytown',
+    state: 'Anystate',
+    zip: '12345',
+    country: 'USA',
+  },
+  registrationMethod: 'Email',
+  balances: {
+    main: 50000,
+    investment: 150000,
+    locked: 25000,
+  },
+  isVerified: true,
+};
+
+export default function UserDetailsPage({ params }: { params: { id: string } }) {
+  // Here you would fetch the user by params.id
+  const user = mockUser;
+
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div>
+            <Link href="/admin/users" className={styles.backLink}>
+              <ChevronLeft size={20} />
+              <span>Back to Users</span>
+            </Link>
+            <h1 className={styles.title}>User Details</h1>
+            <p className={styles.subtitle}>Detailed information for {user.name}.</p>
+          </div>
+        </div>
+        <UserDetailsLayout user={user} />
+      </div>
+    </>
+  );
+}

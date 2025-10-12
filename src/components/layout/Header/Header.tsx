@@ -2,10 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { Menu, X, LayoutDashboard, Home, UserCircle, Settings, LogOut } from 'lucide-react';
 import styles from './header.module.css';
+
 
 export default function Header() {
   const { user, logout, loading } = useAuth();
@@ -55,7 +57,7 @@ export default function Header() {
     <div className={styles.profileContainer} ref={dropdownRef}>
       <button onClick={() => setDropdownOpen(!isDropdownOpen)} className={styles.avatarButton}>
         {user?.image ? (
-          <img src={user.image} alt={user.name} className={styles.avatarImage} />
+          <Image src={user.image} alt={user.name} width={40} height={40} className={styles.avatarImage} />
         ) : (
           <span className={styles.avatarInitials}>{getInitials(user?.name || 'U')}</span>
         )}
@@ -97,71 +99,73 @@ export default function Header() {
   );
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.inner}>
-          {/* Logo */}
-          <div className={styles.logo}>
-            <Link href="/" className={styles.brand}>
-              InvestWise
-            </Link>
-          </div>
+    <>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <div className={styles.inner}>
+            {/* Logo */}
+            <div className={styles.logo}>
+              <Link href="/" className={styles.brand}>
+                InvestWise
+              </Link>
+            </div>
 
-          {/* Desktop Navigation */}
-          <nav className={styles.desktopNav}>
-            <Link href="/" className={styles.navLink}>
-              Home
-            </Link>
-            <Link href="/products" className={styles.navLink}>
-              Products
-            </Link>
-            <Link href="#about" className={styles.navLink}>
-              About
-            </Link>
-            <Link href="#contact" className={styles.navLink}>
-              Contact
-            </Link>
-          </nav>
-
-          {/* Auth Buttons */}
-          <div className={styles.authContainer}>
-            {loading ? <div className={styles.loader}></div> : user ? <UserProfile /> : <AuthLinks />}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className={styles.mobileMenuBtn}>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={styles.mobileIcon}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className={styles.mobileMenu}>
-            <nav className={styles.mobileNav}>
-              <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+            {/* Desktop Navigation */}
+            <nav className={styles.desktopNav}>
+              <Link href="/" className={styles.navLink}>
                 Home
               </Link>
-              <Link href="/products" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+              <Link href="/products" className={styles.navLink}>
                 Products
               </Link>
-              <Link href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+              <Link href="#about" className={styles.navLink}>
                 About
               </Link>
-              <Link href="#contact" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+              <Link href="#contact" className={styles.navLink}>
                 Contact
               </Link>
-              <div className={styles.mobileAuth}>
-                {loading ? <div className={styles.loader}></div> : user ? <UserProfile isMobile={true} /> : <AuthLinks />}
-              </div>
             </nav>
+
+            {/* Auth Buttons */}
+            <div className={styles.authContainer}>
+              {loading ? <div className={styles.loader}></div> : user ? <UserProfile /> : <AuthLinks />}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className={styles.mobileMenuBtn}>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={styles.mobileIcon}
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
-        )}
-      </div>
-    </header>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className={styles.mobileMenu}>
+              <nav className={styles.mobileNav}>
+                <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </Link>
+                <Link href="/products" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                  Products
+                </Link>
+                <Link href="#about" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                  About
+                </Link>
+                <Link href="#contact" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+                  Contact
+                </Link>
+                <div className={styles.mobileAuth}>
+                  {loading ? <div className={styles.loader}></div> : user ? <UserProfile isMobile={true} /> : <AuthLinks />}
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   );
 }

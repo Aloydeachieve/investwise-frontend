@@ -1,17 +1,12 @@
-import React from 'react';
-import { User } from '@/components/types/user';
-import styles from './UserProfileCard.module.css';
-import { Mail, Phone, ShieldCheck, ShieldOff, KeyRound, UserX, Send } from 'lucide-react';
+import React from "react";
+import { User } from "@/components/types/user";
+import styles from "./UserProfileCard.module.css";
+import { Mail, Phone, ShieldCheck, ShieldOff, KeyRound, UserX, Send } from "lucide-react";
 
-interface UserProfileCardProps {
-  user: User;
-}
+const formatCurrency = (amount: number) =>
+  new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN" }).format(amount);
 
-const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
-};
-
-export default function UserProfileCard({ user }: UserProfileCardProps) {
+export default function UserProfileCard({ user }: { user: User }) {
   return (
     <div className={styles.card}>
       <div className={styles.profileHeader}>

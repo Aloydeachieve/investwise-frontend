@@ -9,7 +9,7 @@ import Enable2FAModal from "@/components/modal/admin/Enable2FAModal/Enable2FAMod
 export default function SecuritySettings() {
   const [saveActivity, setSaveActivity] = useState(true);
   const [emailAlerts, setEmailAlerts] = useState(false);
-  const [is2FAEnabled, setIs2FAEnabled] = useState(false);
+  const [is2FAEnabled] = useState(false);
   const [activeModal, setActiveModal] = useState<string | null>(null);
 
   return (

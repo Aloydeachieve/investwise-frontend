@@ -1,37 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./styles.module.css";
 
 type Props = {
   id: string;
   label: string;
   name: string;
-  value: string;
   placeholder?: string;
   type?: string;
   error?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
   required?: boolean;
   disabled?: boolean;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export default function InputField({
+export default forwardRef<HTMLInputElement, Props>(function InputField({
   id,
   label,
   name,
-  value,
   placeholder = '',
   type = 'text',
   error,
-  onChange,
   required = false,
-  disabled = false, // ✅ provide default
-}: Props) {
+  disabled = false,
+  value,
+  onChange,
+}, ref) {
   return (
     <div className={styles.formGroup}>
       <label htmlFor={id}>{label}</label>
       <input
+        ref={ref}
         id={id}
         type={type}
         name={name}
@@ -45,4 +46,4 @@ export default function InputField({
       {error && <p style={{ color: "red", width: "100%" }}>{error}</p>}
     </div>
   );
-}
+});

@@ -18,7 +18,6 @@ import {
   FiPercent,
   FiUserCheck,
 } from "react-icons/fi";
-import { AdminDashboardProviders } from "@/contexts/AdminDashboardProviders";
 import AdminNotificationDropdown from "@/components/admin/AdminNotificationDropdown/AdminNotificationDropdown";
 
 interface AdminDashboardLayoutProps {
@@ -117,12 +116,5 @@ const Layout = ({ children }: AdminDashboardLayoutProps) => {
   );
 };
 
-export default function AdminDashboardLayout({
-  children,
-}: AdminDashboardLayoutProps) {
-  return (
-    <AdminDashboardProviders>
-      <Layout>{children}</Layout>
-    </AdminDashboardProviders>
-  );
-}
+export default  Layout;
+

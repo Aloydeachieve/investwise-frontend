@@ -120,7 +120,7 @@ export default function ReferralsPage() {
         <div className={styles.referralLinkSection}>
           <h3 className={styles.sectionTitle}>Your Referral Link</h3>
           <p className={styles.sectionDescription}>
-            Share this link with your friends. You'll earn a bonus for every
+            Share this link with your friends. You&apos;ll earn a bonus for every
             friend who signs up and makes their first investment.
           </p>
           <div className={styles.linkWrapper}>
@@ -146,7 +146,7 @@ export default function ReferralsPage() {
           ) : (
             <div className={styles.emptyState}>
               <p>
-                You haven’t referred anyone yet. Share your link and earn
+                You haven&apos;t referred anyone yet. Share your link and earn
                 rewards!
               </p>
             </div>

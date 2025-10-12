@@ -3,11 +3,9 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAdminNotification } from "@/contexts/AdminNotificationContext";
-import { Notification } from "@/components/types/notification";
 import styles from "./notifications.module.css";
 import { Bell, CheckCheck } from "lucide-react";
 import NotificationCard from "@/components/dashboard/NotificationCard/NotificationCard";
-import AdminDashboardLayout from "@/components/layout/AdminDashboard/AdminDashboardLayout";
 
 type FilterTab = "all" | "unread";
 
@@ -110,8 +108,8 @@ const AdminNotificationsContent = () => {
 
 export default function AdminNotificationsPage() {
   return (
-    <AdminDashboardLayout>
+    <>
       <AdminNotificationsContent />
-    </AdminDashboardLayout>
+    </>
   );
 }

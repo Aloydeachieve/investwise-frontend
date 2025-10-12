@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./profile.module.css";
 import PersonalInformation from "@/components/admin/AdminProfile/PersonalInformation/PersonalInformation";
 import SecuritySettings from "@/components/admin/AdminProfile/SecuritySettings/SecuritySettings";
 import AccountActivity from "@/components/admin/AdminProfile/AccountActivity/AccountActivity";
 import UpdateProfileModal from "@/components/modal/admin/UpdateProfileModal/UpdateProfileModal";
-import AdminDashboardLayout from "@/components/layout/AdminDashboard/AdminDashboardLayout";
 
 type Tab = "personal" | "security" | "activity";
 
@@ -44,12 +44,12 @@ export default function AdminProfilePage() {
   };
 
   return (
-    <AdminDashboardLayout>
+    <>
       <div className={styles.container}>
         <div className={styles.overviewSection}>
           <div className={styles.avatar}>
             {adminProfile.avatar ? (
-              <img src={adminProfile.avatar} alt={adminProfile.name} />
+              <Image src={adminProfile.avatar} alt={adminProfile.name} width={80} height={80} />
             ) : (
               <span>{getInitials(adminProfile.name)}</span>
             )}
@@ -95,6 +95,6 @@ export default function AdminProfilePage() {
           <UpdateProfileModal onClose={() => setIsModalOpen(false)} />
         )}
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

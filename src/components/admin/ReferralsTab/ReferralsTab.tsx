@@ -3,13 +3,19 @@ import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { User } from '@/components/types/user';
 import styles from '@/styles/Tabs.module.css';
 
+interface ReferralTabProps {
+  userId: string;
+}
+
 // Set to empty array to test the "no referrals" message
 const mockReferrals: User[] = [
   // { id: 'ref1', name: 'Referred User 1', email: 'ref1@example.com', joinDate: '2024-05-01', status: 'active', lastLogin: null },
   // { id: 'ref2', name: 'Referred User 2', email: 'ref2@example.com', joinDate: '2024-05-05', status: 'pending', lastLogin: null },
 ];
 
-export default function ReferralsTab() {
+const ReferralsTab: React.FC<ReferralTabProps> = ({ userId }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // TODO: Use userId to fetch user-specific referrals data
   const columns: ColumnDef<User>[] = useMemo(() => [
     { header: 'Username', accessor: 'name' },
     { header: 'Email', accessor: 'email' },
@@ -32,3 +38,5 @@ export default function ReferralsTab() {
     </div>
   );
 }
+
+export default ReferralsTab;

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { PlusCircle, ChevronRight } from 'lucide-react';
+
 import styles from './styles.module.css';
 import { investmentProducts } from '@/data/investmentProducts';
 

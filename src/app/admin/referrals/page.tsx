@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { AdminReferral } from '@/components/types/referral';
 import { mockAdminReferrals } from '@/data/referrals';
@@ -88,7 +87,7 @@ export default function AdminReferralsPage() {
   ];
 
   return (
-    <AdminDashboardLayout>
+    <>
       <ReferralDetailsModal
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
@@ -131,6 +130,6 @@ export default function AdminReferralsPage() {
           <Table columns={columns} data={filteredReferrals} />
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

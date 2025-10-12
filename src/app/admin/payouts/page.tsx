@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { Payout, PayoutStatus } from '@/components/types/payout';
 import { mockPayouts } from '@/data/payouts';
@@ -118,7 +117,7 @@ export default function PayoutsManagementPage() {
     setDetailsModalOpen(true);
   };
 
-  const handleAddPayout = (data: any) => {
+  const handleAddPayout = (data: Omit<Payout, 'id' | 'transactionId' | 'status' | 'requestDate' | 'processDate'>) => {
     const newPayout: Payout = {
       ...data,
       id: `payout-${Date.now()}`,
@@ -148,7 +147,7 @@ export default function PayoutsManagementPage() {
   ];
 
   return (
-    <AdminDashboardLayout>
+    <>
       <PayoutDetailsModal isOpen={isDetailsModalOpen} onClose={() => setDetailsModalOpen(false)} payout={selectedPayout} onApprove={handleApprove} onReject={handleReject} />
       <ManualPayoutModal isOpen={isManualPayoutModalOpen} onClose={() => setManualPayoutModalOpen(false)} onAddPayout={handleAddPayout} />
       <div className={styles.container}>
@@ -189,6 +188,6 @@ export default function PayoutsManagementPage() {
           <Table columns={columns} data={filteredPayouts} />
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

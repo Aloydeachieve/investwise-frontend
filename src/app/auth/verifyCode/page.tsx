@@ -59,7 +59,7 @@ export default function VerifyCode() {
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Enter Verification Code</h2>
         <p className={styles.subtitle}>
-          We've sent a 6-digit code to your email.
+          We&apos;ve sent a 6-digit code to your email.
           {timeLeft > 0 ? (
             <>
               {" "}
@@ -97,7 +97,7 @@ export default function VerifyCode() {
 
         {timeLeft === 0 && (
           <div className={styles.resendBlock}>
-            <p className={styles.subtitle}>Didn't receive the code?</p>
+            <p className={styles.subtitle}>Didn&apos;t receive the code?</p>
             <button
               className={styles.resendButton}
               onClick={handleResend}

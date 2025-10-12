@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import SummaryCards from '@/components/admin/SummaryCards/SummaryCards';
 import AdminChart from '@/components/admin/AdminChart/AdminChart';
 import RecentActivity from '@/components/admin/RecentActivity/RecentActivity';
@@ -17,7 +16,7 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <AdminDashboardLayout>
+    <>
       {isLoading ? (
         <div className={styles.loadingContainer}>
           <div className={styles.loader}></div>
@@ -61,6 +60,6 @@ export default function AdminDashboard() {
           </div>
         </div>
       )}
-    </AdminDashboardLayout>
+    </>
   );
 }

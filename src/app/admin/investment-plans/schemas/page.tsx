@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
-import AdminDashboardLayout from "@/components/layout/AdminDashboard/AdminDashboardLayout";
 import { InvestmentPlan } from "@/components/types/investment";
 import styles from "./styles.module.css";
 import {
@@ -207,7 +206,7 @@ export default function SchemaManagementPage() {
   ];
 
   return (
-    <AdminDashboardLayout>
+    <>
       <AddSchemaModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -268,6 +267,6 @@ export default function SchemaManagementPage() {
           )}
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

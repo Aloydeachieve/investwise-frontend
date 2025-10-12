@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import sharedStyles from '@/styles/shared.module.css';
 import styles from './appearanceSettings.module.css';
 import ToggleSwitch from '@/components/ToggleSwitch/ToggleSwitch';
@@ -51,12 +52,12 @@ export default function AppearanceSettings() {
           </div>
           <div className={sharedStyles.inputGroup}>
             <div className={sharedStyles.fileInputContainer}>
-              {logoPreview && <img src={logoPreview} alt="Logo preview" className={sharedStyles.logoPreview} />}
+              {logoPreview && <Image src={logoPreview} alt="Logo preview" className={sharedStyles.logoPreview} width={200} height={50} />}
               <label htmlFor="logoUpload" className={sharedStyles.fileInputLabel}>Upload Primary Logo</label>
               <input id="logoUpload" type="file" className={sharedStyles.fileInput} onChange={(e) => handleFileChange(e, 'logo')} accept="image/*" />
             </div>
             <div className={sharedStyles.fileInputContainer}>
-              {faviconPreview && <img src={faviconPreview} alt="Favicon preview" className={sharedStyles.logoPreview} />}
+              {faviconPreview && <Image src={faviconPreview} alt="Favicon preview" className={sharedStyles.logoPreview} width={16} height={16} />}
               <label htmlFor="faviconUpload" className={sharedStyles.fileInputLabel}>Upload Favicon</label>
               <input id="faviconUpload" type="file" className={sharedStyles.fileInput} onChange={(e) => handleFileChange(e, 'favicon')} accept="image/x-icon, image/png, image/svg+xml" />
             </div>

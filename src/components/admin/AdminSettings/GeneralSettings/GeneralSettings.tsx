@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useToast } from '@/contexts/ToastContext';
 import sharedStyles from '@/styles/shared.module.css';
+import Image from 'next/image';
 import styles from './generalSettings.module.css';
 
 type Settings = {
@@ -69,14 +70,14 @@ export default function GeneralSettings() {
     <div className={sharedStyles.settingsCard}>
       <div className={sharedStyles.cardHeader}>
         <h2 className={sharedStyles.cardTitle}>General Settings</h2>
-        <p className={sharedStyles.cardDescription}>Update your platform's basic information and legal links.</p>
+        <p className={sharedStyles.cardDescription}>Update your platform&apos;s basic information and legal links.</p>
       </div>
       <form onSubmit={handleSave} className={sharedStyles.form}>
         
         <div className={sharedStyles.formSection}>
           <div className={sharedStyles.labelGroup}>
             <label htmlFor="platformName">Platform Name</label>
-            <p>The public name of your investment platform.</p>
+            <p>The public name of your investment platform.&apos;</p>
           </div>
           <div className={sharedStyles.inputGroup}>
             <input 
@@ -96,7 +97,7 @@ export default function GeneralSettings() {
           </div>
           <div className={sharedStyles.inputGroup}>
             <div className={sharedStyles.fileInputContainer}>
-              {logoPreview && <img src={logoPreview} alt="Logo preview" className={sharedStyles.logoPreview} />}
+              {logoPreview && <Image src={logoPreview} alt="Logo preview" className={sharedStyles.logoPreview} width={200} height={50} />}
               <label htmlFor="logoUpload" className={sharedStyles.fileInputLabel}>Upload</label>
               <input id="logoUpload" type="file" className={sharedStyles.fileInput} onChange={handleFileChange} accept="image/*" />
             </div>

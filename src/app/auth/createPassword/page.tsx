@@ -5,8 +5,6 @@ import { useRouter } from 'next/navigation';
 import styles from './styles.module.css';
 
 import InputField from "@/components/formFields/InputField";
-import axios from "axios";
-import { showCustomToast } from "@/components/ui/CustomToast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function ResetPassword() {

@@ -41,10 +41,7 @@ export default function FilterTransactionsModal({
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFilters(prev => ({ ...prev, [name]: checked }));
-  };
+
 
   const handleApply = () => {
     onFilter(filters);

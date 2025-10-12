@@ -1,5 +1,3 @@
-import { User } from './user';
-
 export type VerificationStatus = 'pending' | 'approved' | 'rejected';
 export type DocumentType = 'NIN' | 'Passport' | 'Drivers License' | 'BVN';
 

@@ -8,11 +8,18 @@ import { PayoutMethod } from '@/components/types/payout';
 interface ManualPayoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddPayout: (payoutData: any) => void;
+  onAddPayout: (payoutData: {
+    user: { id: string; name: string; email: string };
+    amount: number;
+    currency: string;
+    method: PayoutMethod;
+    destination: string;
+    notes: string;
+  }) => void;
 }
 
 const initialFormState = {
-  user: { id: '', name: '' },
+  user: { id: '', name: '', email: '' },
   amount: 0,
   currency: 'NGN',
   method: 'Bank' as PayoutMethod,
@@ -29,7 +36,7 @@ export default function ManualPayoutModal({ isOpen, onClose, onAddPayout }: Manu
     const { name, value } = e.target;
     if (name === 'user') {
       const [id, userName] = value.split(',');
-      setFormData(prev => ({ ...prev, user: { id, name: userName } }));
+      setFormData(prev => ({ ...prev, user: { id, name: userName, email: '' } }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }

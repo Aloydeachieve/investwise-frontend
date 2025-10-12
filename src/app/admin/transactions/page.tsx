@@ -2,9 +2,8 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import Table, { ColumnDef } from '@/components/admin/Table/Table';
-import { Transaction, TransactionStatus, TransactionType } from '@/components/types/transaction';
+import { Transaction, TransactionStatus } from '@/components/types/transaction';
 import { mockTransactions } from '@/data/transactions';
 import styles from './styles.module.css';
 import { SlidersHorizontal, MoreVertical, Eye, CheckCircle, XCircle, Trash2, Plus, Search } from 'lucide-react';
@@ -191,14 +190,14 @@ export default function TransactionsPage() {
     )},
     { header: 'Status', accessor: 'status', cell: (item) => <StatusBadge status={item.status} /> },
     { header: 'Action', accessor: 'id', cell: (item) => (
-      <ActionsMenu 
-        transaction={item} 
+      <ActionsMenu
+        transaction={item}
         onApprove={handleApprove}
         onReject={handleReject}
         onDelete={handleDelete}
         onViewDetails={handleViewDetails}
       />) },
-  ], [transactions]);
+  ], []);
 
   const tabItems: { label: string; value: FilterTab }[] = [
     { label: 'History', value: 'history' },
@@ -233,7 +232,7 @@ export default function TransactionsPage() {
   };
 
   return (
-    <AdminDashboardLayout>
+    <>
       <FilterTransactionsModal
         isOpen={isFilterModalOpen}
         onClose={() => setFilterModalOpen(false)}
@@ -300,6 +299,6 @@ export default function TransactionsPage() {
           <Table columns={columns} data={filteredTransactions} />
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

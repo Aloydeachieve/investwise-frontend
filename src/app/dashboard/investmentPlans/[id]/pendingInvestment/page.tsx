@@ -22,7 +22,7 @@ export default function PendingInvestment() {
           <h1 className={styles.title}>Congratulation!</h1>
           <p className={styles.message}>
             You have successfully invested the amount of {product.minInvestment || 100} USD on the plan
-            of '{product.name}' using your account balance.
+            of &ldquo;{product.name}&rdquo; using your account balance.
           </p>
           <p className={styles.note}>
             You’ll receive an email once your investment is confirmed. In the

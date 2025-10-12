@@ -39,11 +39,11 @@ export default function VerifyAccountPage() {
           </label>
           <label>
             <input type="radio" name="method" value="drivers" onChange={e => setMethod(e.target.value)} />
-            Driver's License
+            Driver&apos;s License
           </label>
           <label>
             <input type="radio" name="method" value="voters" onChange={e => setMethod(e.target.value)} />
-            Voter's Card
+            Voter&apos;s Card
           </label>
         </div>
         <button className={styles.submitBtn} disabled={!method} type="submit">

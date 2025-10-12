@@ -7,7 +7,14 @@ import { X } from 'lucide-react';
 interface AddUserModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddUser: (userData: any) => void;
+  onAddUser: (userData: {
+    name: string;
+    email: string;
+    password: string;
+    status: 'active' | 'suspended' | 'Inactive';
+    joinDate: string;
+    lastLogin: string | null;
+  }) => void;
 }
 
 export default function AddUserModal({ isOpen, onClose, onAddUser }: AddUserModalProps) {
@@ -20,9 +27,16 @@ export default function AddUserModal({ isOpen, onClose, onAddUser }: AddUserModa
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAddUser({ name, email, password, userType });
+    onAddUser({
+      name,
+      email,
+      password,
+      status: 'active',
+      joinDate: new Date().toISOString(),
+      lastLogin: null
+    });
     // Here you would typically handle form submission, e.g., API call
-    console.log({ name, email, password, userType });
+    console.log({ name, email, password, status: 'active', joinDate: new Date().toISOString(), lastLogin: null });
     onClose(); // Close modal after submission
   };
 

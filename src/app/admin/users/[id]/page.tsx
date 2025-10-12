@@ -1,58 +1,61 @@
-import React from 'react';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
-import UserDetailsLayout from '@/components/admin/UserDetails/UserDetailsLayout';
-import { User } from '@/components/types/user';
-import styles from './styles.module.css';
-import Link from 'next/link';
-import { ChevronLeft } from 'lucide-react';
+"use client";
 
-// Mock data - in a real app, this would be fetched based on the `id` param
-const mockUser: User = {
-  id: '17683',
-  name: 'Sylvanus Odi',
-  fullName: 'Sylvanus Odi',
-  email: 'sylvanus@example.com',
-  status: 'active',
-  joinDate: '2023-10-26',
-  lastLogin: '2024-05-20T10:00:00Z',
-  mobile: '+1 234 567 890',
-  dob: '1990-01-15',
-  gender: 'Male',
-  address: {
-    street: '123 Main St',
-    city: 'Anytown',
-    state: 'Anystate',
-    zip: '12345',
-    country: 'USA',
-  },
-  registrationMethod: 'Email',
-  balances: {
-    main: 50000,
-    investment: 150000,
-    locked: 25000,
-  },
-  isVerified: true,
-};
+import React, { useEffect, useState, use } from "react";
+import UserDetailsLayout from "@/components/admin/UserDetails/UserDetailsLayout";
+import { User } from "@/components/types/user";
+import styles from "./styles.module.css";
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
+import api from "@/lib/api"; // your axios wrapper
 
-export default function UserDetailsPage({ params }: { params: { id: string } }) {
-  // Here you would fetch the user by params.id
-  const user = mockUser;
+export default function UserDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const { id } = use(params); // Unwrap params Promise for Next.js 15+
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        setLoading(true);
+        const res = await api.get(`/auth/users/${id}`);
+        setUser(res.data.data); // assuming your API wraps in { data: { ...user } }
+      } catch (err: unknown) {
+        console.error("Error fetching user:", err);
+        const error = err as { response?: { status?: number; data?: { message?: string } }; message?: string };
+        if (error.response?.status === 500) {
+          setError("Server error: The backend API is not responding correctly. Please ensure the Laravel backend server is running on http://127.0.0.1:8000");
+        } else if (error.response?.status === 404) {
+          setError("User not found: The requested user does not exist.");
+        } else if (error.response?.status === 401) {
+          setError("Authentication error: Please check if you're logged in with admin privileges.");
+        } else {
+          setError(`Failed to load user details: ${error.response?.data?.message || error.message}`);
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchUser();
+  }, [id]);
+
+  if (loading) return <p className={styles.loading}>Loading user details...</p>;
+  if (error) return <p className={styles.error}>{error}</p>;
+  if (!user) return <p className={styles.error}>User not found.</p>;
 
   return (
-    <AdminDashboardLayout>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <div>
-            <Link href="/admin/users" className={styles.backLink}>
-              <ChevronLeft size={20} />
-              <span>Back to Users</span>
-            </Link>
-            <h1 className={styles.title}>User Details</h1>
-            <p className={styles.subtitle}>Detailed information for {user.name}.</p>
-          </div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div>
+          <Link href="/admin/users" className={styles.backLink}>
+            <ChevronLeft size={20} />
+            <span>Back to Users</span>
+          </Link>
+          <h1 className={styles.title}>User Details</h1>
+          <p className={styles.subtitle}>Detailed information for {user.name}.</p>
         </div>
-        <UserDetailsLayout user={user} />
       </div>
-    </AdminDashboardLayout>
+      <UserDetailsLayout user={user} />
+    </div>
   );
 }

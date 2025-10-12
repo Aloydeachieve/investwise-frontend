@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import Link from 'next/link';
 import styles from './styles.module.css';
 import { ChevronLeft, MoreVertical, Clock, Calendar, CheckCircle } from 'lucide-react';
@@ -51,12 +50,12 @@ const mockTransactions = [
 
 const formatCurrency = (amount: number) => `₦${amount.toLocaleString()}`;
 
-const StatusIcon = ({ status }: { status: 'paid' | 'pending' }) => {
+const StatusIcon = ({ status }: { status: string }) => {
     if (status === 'paid') return <CheckCircle size={16} className={styles.paidIcon} />;
     return <Clock size={16} className={styles.pendingIcon} />;
 };
 
-export default function InvestmentDetailsPage({ params }: { params: { id: string } }) {
+export default function InvestmentDetailsPage() {
     const investment = mockInvestment; // Fetch by params.id in real app
 
     const transactionColumns: ColumnDef<typeof mockTransactions[0]>[] = [
@@ -70,7 +69,7 @@ export default function InvestmentDetailsPage({ params }: { params: { id: string
     ];
 
     return (
-        <AdminDashboardLayout>
+        <>
             <div className={styles.container}>
                 {/* Header */}
                 <div className={styles.header}>
@@ -176,6 +175,6 @@ export default function InvestmentDetailsPage({ params }: { params: { id: string
                     <Table columns={transactionColumns} data={mockTransactions} />
                 </div>
             </div>
-        </AdminDashboardLayout>
+        </>
     );
 }

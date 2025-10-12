@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import AdminDashboardLayout from '@/components/layout/AdminDashboard/AdminDashboardLayout';
 import styles from './settings.module.css';
 
 // Import settings components
@@ -45,7 +44,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <AdminDashboardLayout>
+    <>
       <div className={styles.container}>
         <div className={styles.header}>
           <h1 className={styles.title}>Platform Settings</h1>
@@ -68,6 +67,6 @@ export default function SettingsPage() {
           {renderContent()}
         </div>
       </div>
-    </AdminDashboardLayout>
+    </>
   );
 }

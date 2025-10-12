@@ -26,20 +26,20 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import { useQuery } from "@tanstack/react-query";
 import {
   Wallet,
   Download,
   TrendingUp,
   Users,
-  CheckCircle,
   Clock,
   DollarSign,
   ArrowRight,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { useAuth } from "@/contexts/AuthContext";
+import KycStatusBanner from '@/components/ui/KycStatusBanner/KycStatusBanner';
 
 // Mock API fetching functions
 const fetchOverview = async () => {
@@ -172,6 +172,7 @@ const RecentTransactions = ({
 };
 
 export default function DashboardPage() {
+  const { user } = useAuth();
   const { data: overview, isLoading: isOverviewLoading } = useQuery({
     queryKey: ["dashboardOverview"],
     queryFn: fetchOverview,
@@ -185,12 +186,12 @@ export default function DashboardPage() {
   const isLoading = isOverviewLoading || isTransactionsLoading;
 
   const getKycBadgeVariant = (status: string | undefined) => {
-    switch (status) {
-      case "Approved":
+    switch (status?.toLowerCase()) {
+      case "approved":
         return "success";
-      case "Pending":
+      case "pending":
         return "warning";
-      case "Rejected":
+      case "rejected":
         return "destructive";
       default:
         return "secondary";
@@ -198,12 +199,12 @@ export default function DashboardPage() {
   };
   return (
     <>
-      <div className="space-y-8">
+      <div className="space-y-8 p-7">
         <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
             <p className="text-muted-foreground">
-              Here's a summary of your account activity.
+              Here&apos;s a summary of your account activity.
             </p>
           </div>
           {isLoading ? (
@@ -211,12 +212,14 @@ export default function DashboardPage() {
           ) : (
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium">KYC Status:</span>
-              <Badge variant={getKycBadgeVariant(overview?.kycStatus)}>
-                {overview?.kycStatus}
+              <Badge variant={getKycBadgeVariant(user?.kyc_status)}>
+                {user?.kyc_status?.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
               </Badge>
             </div>
           )}
         </div>
+
+        <KycStatusBanner />
 
         {/* --- Stats Cards --- */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">

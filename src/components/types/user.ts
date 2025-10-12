@@ -1,4 +1,4 @@
-export type UserStatus = 'active' | 'suspended' | 'pending';
+export type UserStatus = 'active' | 'suspended' | 'Inactive';
 
 export interface User {
   id: string;
@@ -7,6 +7,7 @@ export interface User {
   status: UserStatus;
   joinDate: string;
   lastLogin: string | null;
+   role: "admin" | "user"; // or whatever roles your app supports
   // New detailed fields
   fullName?: string;
   mobile?: string | null;
@@ -22,4 +23,10 @@ export interface User {
   registrationMethod?: 'Email' | 'Google' | 'Facebook';
   balances?: { main: number; investment: number; locked: number };
   isVerified?: boolean;
+
+  // relations
+  transactions?: unknown[];
+  referrals?: unknown[];
+  investments?: unknown[];
+  activities?: unknown[];
 }
