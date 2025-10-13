@@ -24,9 +24,9 @@ const StatusBadge: React.FC<{ status: Investment['status'] }> = ({ status }) => 
   return <span className={`${styles.statusBadge} ${statusClasses[status]}`}>{status}</span>;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InvestmentsTab: React.FC<InvestmentsTabProps> = ({ userId }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // TODO: Use userId to fetch user-specific investments data
+  // TODO: Use userId to fetch user-specific investments data.
   const columns: ColumnDef<Investment>[] = useMemo(() => [
     { header: 'Plan Name', accessor: 'planName' },
     { header: 'Amount', accessor: 'amount', cell: (item) => formatCurrency(item.amount) },
