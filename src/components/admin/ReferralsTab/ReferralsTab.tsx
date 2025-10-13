@@ -13,9 +13,9 @@ const mockReferrals: User[] = [
   // { id: 'ref2', name: 'Referred User 2', email: 'ref2@example.com', joinDate: '2024-05-05', status: 'pending', lastLogin: null },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ReferralsTab: React.FC<ReferralTabProps> = ({ userId }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // TODO: Use userId to fetch user-specific referrals data
+  // TODO: Use userId to fetch user-specific referrals data.
   const columns: ColumnDef<User>[] = useMemo(() => [
     { header: 'Username', accessor: 'name' },
     { header: 'Email', accessor: 'email' },

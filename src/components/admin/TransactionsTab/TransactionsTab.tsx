@@ -27,9 +27,9 @@ const StatusBadge: React.FC<{ status: Transaction['status'] }> = ({ status }) =>
   return <span className={`${styles.statusBadge} ${statusClasses[status]}`}>{status}</span>;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TransactionsTab: React.FC<TransactionsTabProps> = ({ userId }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // TODO: Use userId to fetch user-specific transactions data
+  // TODO: Use userId to fetch user-specific transactions data.
   const columns: ColumnDef<Transaction>[] = useMemo(() => [
     { header: 'Type', accessor: 'type' },
     { header: 'Order ID', accessor: 'orderId' },
