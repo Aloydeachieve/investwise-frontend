@@ -40,7 +40,7 @@ function Layout({ children }: { children: ReactNode }) {
         <div className={styles.sidebar}>
           <div className={styles.sidebarContent}>
             <div className={styles.logoWrapper}>
-              <Link href="/" className={styles.logo}>InvestWise</Link>
+              <Link href="/" className={styles.logo}>TreVox</Link>
             </div>
             <div className={styles.navWrapper}>
               <nav className={styles.nav}>

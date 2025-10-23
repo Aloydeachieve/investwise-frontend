@@ -6,7 +6,7 @@ import styles from "./PersonalInformation.module.css";
 const personalInfo = {
   fullName: "Sylvanus Odi",
   displayName: "Sylvanus",
-  email: "admin@investwise.com",
+  email: "admin@TreVox.com",
   phone: "+1 (555) 123-4567",
   telegram: "@sylvanusodi",
   dob: "1990-01-01",

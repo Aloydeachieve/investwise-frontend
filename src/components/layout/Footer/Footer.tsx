@@ -8,7 +8,7 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Company Info */}
           <div className={styles.companyInfo}>
-            <Link href="/" className={styles.logo}>InvestWise</Link>
+            <Link href="/" className={styles.logo}>TreVox</Link>
             <p className={styles.description}>
               Building financial futures through smart investing. Your trusted partner on the path to financial freedom.
             </p>
@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} InvestWise, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} TreVox, Inc. All rights reserved.
           </p>
           <div className={styles.legalLinks}>
             <a href="#" className={styles.link}>Privacy Policy</a>
@@ -71,7 +71,7 @@ export default function Footer() {
             <a href="#" className={styles.link}>Legal Notices</a>
           </div>
           <p className={styles.disclaimer}>
-            InvestWise is a registered investment advisor with the SEC. Investing involves risk, and past performance does not guarantee future results.
+            TreVox is a registered investment advisor with the SEC. Investing involves risk, and past performance does not guarantee future results.
             By using this website, you accept our Terms of Service and Privacy Policy.
           </p>
         </div>

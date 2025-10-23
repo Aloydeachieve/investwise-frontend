@@ -23,12 +23,12 @@ type Errors = Partial<Record<keyof Settings, string>>;
 export default function GeneralSettings() {
   const { addToast } = useToast();
   const [settings, setSettings] = useState<Settings>({
-    platformName: 'InvestWise',
+    platformName: 'TreVox',
     logo: '',
     defaultCurrency: 'NGN',
     supportedCurrencies: 'NGN, USD, EUR',
     timezone: 'Africa/Lagos',
-    contactEmail: 'support@investwise.com',
+    contactEmail: 'support@TreVox.com',
     contactPhone: '+234 800 123 4567',
     termsUrl: '/legal/terms',
     privacyUrl: '/legal/privacy',

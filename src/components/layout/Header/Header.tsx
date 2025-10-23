@@ -106,7 +106,7 @@ export default function Header() {
             {/* Logo */}
             <div className={styles.logo}>
               <Link href="/" className={styles.brand}>
-                InvestWise
+                Trevox
               </Link>
             </div>
 

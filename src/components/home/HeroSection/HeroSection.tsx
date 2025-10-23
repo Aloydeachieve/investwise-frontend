@@ -39,7 +39,7 @@ export default function HeroSection() {
                 <span className="text-blue-600">Secure Your Future</span>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-                InvestWise combines advanced technology with financial expertise to help you 
+                TreVox combines advanced technology with financial expertise to help you 
                 build wealth with confidence. Start investing with as little as $100.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -65,7 +65,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <p className="ml-4 text-sm text-gray-600">
-                  Join over <span className="font-medium">50,000</span> investors who trust InvestWise
+                  Join over <span className="font-medium">50,000</span> investors who trust TreVox
                 </p>
               </div>
             </div>

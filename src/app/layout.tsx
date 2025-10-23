@@ -21,9 +21,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InvestWise - Secure Investments for Your Future",
+  title: "TreVox - Secure Investments for Your Future",
   description:
-    "InvestWise is a platform for secure investments and wealth management.",
+    "TreVox is a platform for secure investments and wealth management.",
 };
 
 export default function RootLayout({

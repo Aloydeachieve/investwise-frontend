@@ -8,16 +8,16 @@ export default function FAQSection() {
   
   const faqs = [
     {
-      question: "How does InvestWise work?",
-      answer: "InvestWise uses advanced algorithms to create and manage a personalized investment portfolio based on your financial goals and risk tolerance. We invest your money in a diversified mix of low-cost ETFs across global markets, and our platform automatically rebalances your portfolio to maintain your target asset allocation."
+      question: "How does TreVox work?",
+      answer: "TreVox uses advanced algorithms to create and manage a personalized investment portfolio based on your financial goals and risk tolerance. We invest your money in a diversified mix of low-cost ETFs across global markets, and our platform automatically rebalances your portfolio to maintain your target asset allocation."
     },
     {
       question: "What are the fees?",
-      answer: "InvestWise charges a flat annual fee of 0.25% on your account balance, billed quarterly. There are no additional trading commissions, account maintenance fees, or withdrawal penalties. The underlying ETFs in your portfolio have their own expense ratios, which typically range from 0.04% to 0.15%."
+      answer: "TreVox charges a flat annual fee of 0.25% on your account balance, billed quarterly. There are no additional trading commissions, account maintenance fees, or withdrawal penalties. The underlying ETFs in your portfolio have their own expense ratios, which typically range from 0.04% to 0.15%."
     },
     {
-      question: "Is my money safe with InvestWise?",
-      answer: "Yes. InvestWise is a registered investment advisor with the SEC, and all accounts are held with our trusted broker-dealer partner, which provides SIPC insurance that protects securities in your account up to $500,000, including up to $250,000 in cash. Additionally, our broker-dealer partner provides additional insurance beyond SIPC limits."
+      question: "Is my money safe with TreVox?",
+      answer: "Yes. TreVox is a registered investment advisor with the SEC, and all accounts are held with our trusted broker-dealer partner, which provides SIPC insurance that protects securities in your account up to $500,000, including up to $250,000 in cash. Additionally, our broker-dealer partner provides additional insurance beyond SIPC limits."
     },
     {
       question: "What's the minimum investment?",
@@ -25,7 +25,7 @@ export default function FAQSection() {
     },
     {
       question: "How do I withdraw my money?",
-      answer: "You can withdraw money from your InvestWise account at any time without penalty. Simply log into your account, select the 'Withdraw' option, and specify the amount. Withdrawals typically take 3-5 business days to complete as we need to sell investments and transfer the funds to your bank account."
+      answer: "You can withdraw money from your TreVox account at any time without penalty. Simply log into your account, select the 'Withdraw' option, and specify the amount. Withdrawals typically take 3-5 business days to complete as we need to sell investments and transfer the funds to your bank account."
     },
     {
       question: "What types of accounts do you offer?",
@@ -43,7 +43,7 @@ export default function FAQSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get answers to common questions about investing with InvestWise.
+            Get answers to common questions about investing with TreVox.
           </p>
         </div>
 

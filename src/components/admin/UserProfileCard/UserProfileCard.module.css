@@ -154,3 +154,21 @@
 .suspendButton:hover {
   background-color: #fecaca;
 }
+
+.unsuspendButton {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+.unsuspendButton:hover {
+  background-color: #a5b4fc;
+}
+
+.deleteButton {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+.deleteButton:hover {
+  background-color: #fde2e2;
+}
