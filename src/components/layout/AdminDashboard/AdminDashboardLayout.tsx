@@ -67,7 +67,7 @@ const Layout = ({ children }: AdminDashboardLayoutProps) => {
       >
         <div className={styles.logo}>
           <Link href="/admin">
-            <span>InvestWise Admin</span>
+            <span>TreVox Admin</span>
           </Link>
         </div>
         <nav className={styles.nav}>

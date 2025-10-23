@@ -19,7 +19,7 @@ export default function NotificationSettings() {
     smtpPort: 2525,
     smtpUser: 'user123',
     smtpPass: 'pass123',
-    fromEmail: 'noreply@investwise.com',
+    fromEmail: 'noreply@TreVox.com',
     notificationsEnabled: true,
   });
 

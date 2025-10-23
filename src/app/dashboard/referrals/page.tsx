@@ -44,7 +44,7 @@ export default function ReferralsPage() {
   const { addToast } = useToast();
   const [referrals] = useState<Referral[]>(mockUserReferrals);
   const [stats] = useState(mockReferralStats);
-  const referralLink = "https://investwise.com/ref/sylvanusodi";
+  const referralLink = "https://TreVox.com/ref/sylvanusodi";
 
   const copyToClipboard = () => {
     navigator.clipboard

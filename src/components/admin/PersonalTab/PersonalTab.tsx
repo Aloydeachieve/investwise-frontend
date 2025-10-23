@@ -18,13 +18,13 @@ export default function PersonalTab({ user }: { user: User }) {
     <div className={styles.container}>
       <h3 className={styles.title}>Personal Information</h3>
       <dl className={styles.detailsList}>
-        <DetailItem label="Full Name" value={user.fullName} />
+        <DetailItem label="Full Name" value={user.name} />
         <DetailItem label="Email Address" value={user.email} />
         <DetailItem label="Mobile Number" value={user.mobile} />
         <DetailItem label="Date of Birth" value={user.dob ? new Date(user.dob).toLocaleDateString() : "N/A"} />
         <DetailItem label="Gender" value={user.gender} />
         <DetailItem label="Address" value={fullAddress} />
-        <DetailItem label="Date Joined" value={new Date(user.joinDate).toLocaleString()} />
+        <DetailItem label="Date Joined" value={user.joinDate ? new Date(user.joinDate).toLocaleDateString() : "N/A"} />
         <DetailItem label="Registration Method" value={user.registrationMethod} />
         <DetailItem label="Last Login" value={user.lastLogin ? new Date(user.lastLogin).toLocaleString() : "Never"} />
         <DetailItem label="Email Verified" value={user.isVerified ? "Yes" : "No"} />

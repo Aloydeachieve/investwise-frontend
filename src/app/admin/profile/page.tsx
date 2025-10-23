@@ -17,7 +17,7 @@ export default function AdminProfilePage() {
   // Mock data, replace with API call
   const adminProfile = {
     name: "Sylvanus Odi",
-    email: "admin@investwise.com",
+    email: "admin@TreVox.com",
     role: "Administrator",
     avatar: "", // or a URL to an image
   };

@@ -15,7 +15,7 @@ export const investmentProducts: Product[] = [
         'No minimum balance required',
         'No monthly maintenance fees',
         'Interest compounded daily and paid monthly',
-        'Unlimited transfers between InvestWise accounts'
+        'Unlimited transfers between TreVox accounts'
       ],
       color: 'bg-green-100',
       textColor: 'text-green-700'

@@ -7,19 +7,19 @@ export default function TestimonialsSection() {
   
   const testimonials = [
     {
-      quote: "InvestWise has completely transformed how I approach investing. The automated portfolio management and rebalancing has saved me countless hours while delivering excellent returns.",
+      quote: "TreVox has completely transformed how I approach investing. The automated portfolio management and rebalancing has saved me countless hours while delivering excellent returns.",
       author: "Sarah Johnson",
       title: "Software Engineer",
       image: "/images/testimonial-1.jpg" // Will be added later
     },
     {
-      quote: "As someone new to investing, I was intimidated by the stock market. InvestWise made it easy to get started with clear guidance and low minimum investments. My portfolio is up 12% this year!",
+      quote: "As someone new to investing, I was intimidated by the stock market. TreVox made it easy to get started with clear guidance and low minimum investments. My portfolio is up 12% this year!",
       author: "Michael Chen",
       title: "Marketing Director",
       image: "/images/testimonial-2.jpg" // Will be added later
     },
     {
-      quote: "The financial advisors at InvestWise helped me develop a retirement strategy that I'm confident in. Their tax-optimization strategies alone have saved me thousands in taxes.",
+      quote: "The financial advisors at TreVox helped me develop a retirement strategy that I'm confident in. Their tax-optimization strategies alone have saved me thousands in taxes.",
       author: "Robert Patel",
       title: "Small Business Owner",
       image: "/images/testimonial-3.jpg" // Will be added later
@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Thousands of investors trust InvestWise to help them achieve their financial goals.
+            Thousands of investors trust TreVox to help them achieve their financial goals.
           </p>
         </div>
 

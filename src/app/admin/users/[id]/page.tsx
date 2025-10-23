@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import api from "@/lib/api"; // your axios wrapper
+import { isAxiosError } from "axios";
 
 export default function UserDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const [user, setUser] = useState<User | null>(null);
@@ -21,16 +22,20 @@ export default function UserDetailsPage({ params }: { params: Promise<{ id: stri
         const res = await api.get(`/auth/users/${id}`);
         setUser(res.data.data); // assuming your API wraps in { data: { ...user } }
       } catch (err: unknown) {
-        console.error("Error fetching user:", err);
-        const error = err as { response?: { status?: number; data?: { message?: string } }; message?: string };
-        if (error.response?.status === 500) {
-          setError("Server error: The backend API is not responding correctly. Please ensure the Laravel backend server is running on http://127.0.0.1:8000");
-        } else if (error.response?.status === 404) {
-          setError("User not found: The requested user does not exist.");
-        } else if (error.response?.status === 401) {
-          setError("Authentication error: Please check if you're logged in with admin privileges.");
+        if (isAxiosError(err)) {
+          console.error("Error fetching user:", err.message);
+          if (err.response?.status === 500) {
+            setError("Server error: The backend API is not responding correctly. Please ensure the Laravel backend server is running on http://127.0.0.1:8000");
+          } else if (err.response?.status === 404) {
+            setError("User not found: The requested user does not exist.");
+          } else if (err.response?.status === 401) {
+            setError("Authentication error: Please check if you're logged in with admin privileges.");
+          } else {
+            setError(`Failed to load user details: ${err.response?.data?.message || err.message}`);
+          }
         } else {
-          setError(`Failed to load user details: ${error.response?.data?.message || error.message}`);
+          console.error("An unexpected error occurred:", err);
+          setError("An unexpected error occurred. Please try again.");
         }
       } finally {
         setLoading(false);
