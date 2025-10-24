@@ -62,7 +62,7 @@ export default function UserProfileCard({ user }: { user: User }) {
   const toggleVerification = async () => {
     setLoading(true);
     try {
-      const res = await put(`admin/users/${user.id}/verify`, {
+      const res = await put(`auth/users/${user.id}/verify`, {
         verified: !isVerified,
       });
       if (res.success) {

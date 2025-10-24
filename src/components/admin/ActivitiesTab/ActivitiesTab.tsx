@@ -1,43 +1,104 @@
-import React, { useMemo } from 'react';
-import Table, { ColumnDef } from '@/components/admin/Table/Table';
-import { ActivityLog } from '@/components/types/details';
-import styles from '@/styles/Tabs.module.css';
-import { Trash2 } from 'lucide-react';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import Table, { ColumnDef } from "@/components/admin/Table/Table";
+import { ActivityLog } from "@/components/types/details";
+import styles from "@/styles/Tabs.module.css";
+import { Trash2 } from "lucide-react";
+import { fetchUserActivities, clearActivityLog, deleteUserActivity } from "@/lib/adminUserApi";
 
 interface ActivitiesTabProps {
   userId: string;
+  initialData?: ActivityLog[];
 }
 
-const mockActivities: ActivityLog[] = [
-  { id: 'act1', browser: 'Chrome on Windows', ipAddress: '192.168.1.1', timestamp: '2024-05-21T10:00:00Z', action: 'Logged In' },
-  { id: 'act2', browser: 'Safari on macOS', ipAddress: '10.0.0.5', timestamp: '2024-05-20T15:30:00Z', action: 'Viewed Investment Plan' },
-  { id: 'act3', browser: 'Chrome on Windows', ipAddress: '192.168.1.1', timestamp: '2024-05-20T10:05:00Z', action: 'Updated Profile' },
-];
+const ActivitiesTab: React.FC<ActivitiesTabProps> = ({ userId, initialData }) => {
+  const [activities, setActivities] = useState<ActivityLog[]>(initialData || []);
+  const [loading, setLoading] = useState(!initialData);
 
-const ActivitiesTab: React.FC<ActivitiesTabProps> = ({ userId }) => {
-  const columns: ColumnDef<ActivityLog>[] = useMemo(() => [
-    { header: 'Browser & OS', accessor: 'browser' },
-    { header: 'IP Address', accessor: 'ipAddress' },
-    { header: 'Timestamp', accessor: 'timestamp', cell: (item) => new Date(item.timestamp).toLocaleString() },
-    { header: 'Action', accessor: 'action' },
-    {
-      header: 'Clear',
-      accessor: 'id',
-      cell: (item) => (
-        <button className={styles.clearButton} onClick={() => console.log('Clear log', item.id, 'for user', userId)}>
-          <Trash2 size={16} />
-        </button>
-      ),
-    },
-  ], [userId]);
+  const loadActivities = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetchUserActivities(userId);
+      if (Array.isArray(res)) {
+        setActivities(res);
+      } else if (res?.data && Array.isArray(res.data)) {
+        setActivities(res.data);
+      } else {
+        setActivities([]);
+      }
+    } catch (err) {
+      console.error("Error fetching activities:", err);
+      setActivities([]);
+    } finally {
+      setLoading(false);
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    if (!initialData) {
+      loadActivities();
+    }
+  }, [userId, initialData, loadActivities]);
+
+  const handleClear = useCallback(async (id?: string) => {
+    try {
+      if (id) {
+        await deleteUserActivity(userId, id);
+      } else {
+        await clearActivityLog(userId);
+      }
+      await loadActivities();
+    } catch (error) {
+      console.error("Failed to clear logs", error);
+    }
+  }, [userId, loadActivities]);
+
+  const columns: ColumnDef<ActivityLog>[] = useMemo(
+    () => [
+      { header: "Browser & OS", accessor: "browser", sortable: true },
+      { header: "IP Address", accessor: "ipAddress", sortable: true },
+      {
+        header: "Timestamp",
+        accessor: "timestamp",
+        cell: (item) => new Date(item.timestamp).toLocaleString(),
+        sortable: true,
+      },
+      { header: "Action", accessor: "action", sortable: true },
+      {
+        header: "Clear",
+        accessor: "id",
+        cell: (item) => (
+          <button
+            className={styles.clearButton}
+            onClick={() => handleClear(item.id)}
+          >
+            <Trash2 size={16} />
+          </button>
+        ),
+      },
+    ],
+    [handleClear]
+  );
+
+  if (loading) return <p className={styles.loading}>Loading activity logs...</p>;
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h3 className={styles.title}>User Activities</h3>
-        <button className={styles.clearAllButton}>Clear All Logs</button>
+                <button
+          className={styles.clearAllButton}
+          onClick={() => handleClear()}
+        >
+          Clear All Logs
+        </button>
       </div>
-      <Table columns={columns} data={mockActivities} />
+      {activities.length > 0 ? (
+        <Table columns={columns} data={activities} />
+      ) : (
+        <div className={styles.placeholder}>
+          <p>No activities found for this user.</p>
+        </div>
+      )}
     </div>
   );
 };

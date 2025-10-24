@@ -1,63 +1,101 @@
-/* src/app/auth/verify/pending/page.module.css */
-
 .wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
-  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f9fafb; /* A light gray background */
+  padding: 1rem;
   text-align: center;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.statusIcon {
-  height: 4rem;
-  width: 4rem;
-  color: #facc15;
-  margin-bottom: 1.5rem;
+.card {
+  background-color: #ffffff;
+  border-radius: 0.75rem; /* 12px */
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  max-width: 450px;
+  width: 100%;
+}
+
+.iconWrapper {
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem; /* 64px */
+  width: 4rem; /* 64px */
+  border-radius: 9999px;
+  background-color: #dbeafe; /* blue-100 */
+  color: #2563eb; /* blue-600 */
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 1.5rem; /* 24px */
   font-weight: bold;
-  color: #1e293b;
-  margin-bottom: 0.5rem;
+  color: #111827; /* gray-900 */
+  margin-top: 1.25rem; /* 20px */
 }
 
 .message {
   font-size: 1rem;
-  color: #64748b;
-  max-width: 500px;
+  color: #4b5563; /* gray-600 */
+  margin-top: 1rem;
+  line-height: 1.5;
 }
 
-/* src/app/auth/verify/success/page.module.css */
-
-.successWrapper {
-  color-scheme: wrapper;
-}
-
-.statusIconSuccess {
-  height: 4rem;
-  width: 4rem;
-  color: #22c55e;
-  margin-bottom: 1.5rem;
-}
-
-.successMessage {
+.note {
   font-size: 1rem;
-  color: #4ade80;
-  max-width: 500px;
+  color: #4b5563; /* gray-600 */
   margin-top: 0.5rem;
+  line-height: 1.5;
 }
 
-.loginLink {
-  margin-top: 2rem;
+.button {
+  display: inline-block;
+  width: 100%;
+  margin-top: 2rem; /* 32px */
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
+  border-radius: 0.5rem; /* 8px */
   text-decoration: none;
-  font-weight: bold;
-  color: #2563eb;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: background-color 0.2s ease-in-out;
 }
 
-.loginLink:hover {
-  text-decoration: underline;
+.button:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+.footerNote {
+  margin-top: 1.5rem; /* 24px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; /* 14px */
+  color: #6b7280; /* gray-500 */
+}
+
+.footerNote svg {
+  margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .card {
+    padding: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.875rem; /* 30px */
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem; /* 36px */
+  }
 }

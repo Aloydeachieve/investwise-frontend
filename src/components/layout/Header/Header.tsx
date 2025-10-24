@@ -105,6 +105,7 @@ export default function Header() {
           <div className={styles.inner}>
             {/* Logo */}
             <div className={styles.logo}>
+              <Image src="/logo1.jpg" alt="Trevox logo" width={40} height={40} className={styles.logoImage} />
               <Link href="/" className={styles.brand}>
                 Trevox
               </Link>
@@ -127,7 +128,7 @@ export default function Header() {
             </nav>
 
             {/* Auth Buttons */}
-            <div className={styles.authContainer}>
+            <div className={`${styles.authContainer} ${styles.desktopOnly}`}>
               {loading ? <div className={styles.loader}></div> : user ? <UserProfile /> : <AuthLinks />}
             </div>
 
