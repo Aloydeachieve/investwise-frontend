@@ -3,6 +3,7 @@
 import { ReactNode, useState } from "react";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import {
   Briefcase,
   DollarSign,
@@ -40,6 +41,7 @@ function Layout({ children }: { children: ReactNode }) {
         <div className={styles.sidebar}>
           <div className={styles.sidebarContent}>
             <div className={styles.logoWrapper}>
+            <Image src="/logo1.jpg" alt="Trevox logo" width={40} height={40} className={styles.logoImage} />
               <Link href="/" className={styles.logo}>TreVox</Link>
             </div>
             <div className={styles.navWrapper}>

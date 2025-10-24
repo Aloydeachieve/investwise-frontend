@@ -1,18 +1,33 @@
 import React from "react";
-import styles from "./InvestmentGraph.module.css";
 
 const InvestmentGraph = () => {
   return (
-    <div className={styles.graphContainer}>
-      <div className={styles.labels}>Investment | Profit</div>
-      <svg className={styles.svg} viewBox="0 0 300 60">
+    <div className="relative w-full h-20">
+      <div className="absolute top-0 left-0 text-xs text-gray-500 flex gap-3">
+        <span className="flex items-center gap-1">
+          <span className="w-3 h-0.5 bg-indigo-500"></span>Investment
+        </span>
+        <span className="flex items-center gap-1">
+          <span className="w-3 h-0.5 bg-purple-500"></span>Profit
+        </span>
+      </div>
+      <svg
+        className="w-full h-full mt-4"
+        viewBox="0 0 300 60"
+        preserveAspectRatio="none"
+      >
         <path
-          d="M0,40 Q50,30 100,35 T200,25 T300,20"
-          className={styles.profitLine}
+          d="M0,45 L50,35 L80,50 L120,25 L160,45 L200,15 L240,30 L280,20 L300,35"
+          fill="none"
+          stroke="#8b5cf6"
+          strokeWidth="2"
+          className="opacity-70"
         />
         <path
-          d="M0,50 Q50,45 100,40 T200,35 T300,30"
-          className={styles.investmentLine}
+          d="M0,50 L50,42 L80,52 L120,38 L160,48 L200,28 L240,38 L280,32 L300,40"
+          fill="none"
+          stroke="#6366f1"
+          strokeWidth="2"
         />
       </svg>
     </div>

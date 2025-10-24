@@ -4,26 +4,31 @@
 
 import styles from "./styles.module.css";
 import Link from "next/link";
-import { Clock } from "lucide-react";
+import { Clock, MailCheck } from "lucide-react";
 
 export default function PendingVerification() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
-        <Clock size={48} className={styles.icon} />
+        <div className={styles.iconWrapper}>
+          <Clock size={40} strokeWidth={2} />
+        </div>
         <h1 className={styles.title}>Verification in Progress</h1>
         <p className={styles.message}>
-          Your identity verification is currently under review. This process may
-          take up to <strong>24–48 hours</strong>.
+          Thank you for submitting your details. Your account is currently under
+          review. This usually takes a few hours.
         </p>
         <p className={styles.note}>
-          You’ll receive an email once your account is verified. In the meantime,
-          you may continue to use your account with limited features.
+          We will notify you via email once the verification is complete.
         </p>
 
         <Link href="/auth/login" className={styles.button}>
-          Go to Login
+          Proceed to Login
         </Link>
+        <div className={styles.footerNote}>
+          <MailCheck size={16} />
+          <span>An email has been sent to you with more details.</span>
+        </div>
       </div>
     </div>
   );

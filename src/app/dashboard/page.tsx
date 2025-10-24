@@ -131,7 +131,7 @@ const RecentTransactions = ({
           </CardDescription>
         </div>
         <Button asChild variant="outline" size="sm">
-          <Link href="/dashboard/transactions">
+          <Link href="/dashboard/transactions" className="text-shadow-amber-300">
             View All <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

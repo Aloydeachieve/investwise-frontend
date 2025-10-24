@@ -1,20 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Table, { ColumnDef } from '@/components/admin/Table/Table';
 import { Investment } from '@/components/types/details';
 import styles from '@/styles/Tabs.module.css';
+import { fetchUserInvestments } from '@/lib/adminUserApi';
 
 interface InvestmentsTabProps {
   userId: string;
 }
 
-const mockInvestments: Investment[] = [
-  { id: 'inv1', planName: 'Starter Plan', startDate: '2024-04-01', endDate: '2024-07-01', investmentId: 'INV-001', amount: 50000, currency: 'NGN', status: 'active' },
-  { id: 'inv2', planName: 'Pro Plan', startDate: '2024-01-15', endDate: '2024-04-15', investmentId: 'INV-002', amount: 100000, currency: 'NGN', status: 'completed' },
-];
-
-const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
-};
+const formatCurrency = (amount: number) =>
+  new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
 
 const StatusBadge: React.FC<{ status: Investment['status'] }> = ({ status }) => {
   const statusClasses = {
@@ -24,23 +19,41 @@ const StatusBadge: React.FC<{ status: Investment['status'] }> = ({ status }) => 
   return <span className={`${styles.statusBadge} ${statusClasses[status]}`}>{status}</span>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InvestmentsTab: React.FC<InvestmentsTabProps> = ({ userId }) => {
-  // TODO: Use userId to fetch user-specific investments data.
+  const [investments, setInvestments] = useState<Investment[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchInvestments = async () => {
+      try {
+        const data = await fetchUserInvestments(userId);
+        setInvestments(data.data || []);
+      } catch (err) {
+        console.error('Failed to fetch investments:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInvestments();
+  }, [userId]);
+
   const columns: ColumnDef<Investment>[] = useMemo(() => [
-    { header: 'Plan Name', accessor: 'planName' },
-    { header: 'Amount', accessor: 'amount', cell: (item) => formatCurrency(item.amount) },
+    { header: 'Plan ID', accessor: 'investmentId' },
+    { header: 'Amount Invested', accessor: 'amount', cell: (item) => formatCurrency(item.amount) },
     { header: 'Start Date', accessor: 'startDate', cell: (item) => new Date(item.startDate).toLocaleDateString() },
     { header: 'End Date', accessor: 'endDate', cell: (item) => new Date(item.endDate).toLocaleDateString() },
     { header: 'Status', accessor: 'status', cell: (item) => <StatusBadge status={item.status} /> },
   ], []);
 
+  if (loading) return <p>Loading investments...</p>;
+
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>User Investments</h3>
-      <Table columns={columns} data={mockInvestments} />
+      <Table columns={columns} data={investments} />
     </div>
   );
-}
+};
 
 export default InvestmentsTab;
